@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini 3D City World</title>
+    <meta
+      name="description"
+      content="A lightweight Three.js mini world modeled from a city screenshot."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="shell">
+      <canvas id="world" aria-label="Interactive mini 3D city world"></canvas>
+
+      <section class="panel" aria-label="Scene controls">
+        <header class="panel-header">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <h1>Mini 3D City</h1>
+            <p id="status">Ready</p>
+          </div>
+        </header>
+
+        <div class="stats" aria-label="Model stats">
+          <div>
+            <span>Buildings</span>
+            <strong id="building-count">0</strong>
+          </div>
+          <div>
+            <span>Trees</span>
+            <strong id="tree-count">0</strong>
+          </div>
+          <div>
+            <span>Roads</span>
+            <strong id="road-count">0</strong>
+          </div>
+        </div>
+
+        <div class="toggles">
+          <label class="toggle">
+            <input id="photo-toggle" type="checkbox" checked />
+            <span aria-hidden="true"></span>
+            <b>Photo</b>
+          </label>
+          <label class="toggle">
+            <input id="label-toggle" type="checkbox" checked />
+            <span aria-hidden="true"></span>
+            <b>Labels</b>
+          </label>
+          <label class="toggle">
+            <input id="rotate-toggle" type="checkbox" />
+            <span aria-hidden="true"></span>
+            <b>Orbit</b>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="reset-view" type="button" title="Reset view">Reset</button>
+          <button id="flyover" type="button" title="Start flyover">Flyover</button>
+          <button id="download-glb" type="button" title="Download GLB">GLB</button>
+        </div>
+
+        <output id="selection" class="selection" aria-live="polite">
+          <span>Selected</span>
+          <strong>None</strong>
+        </output>
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
